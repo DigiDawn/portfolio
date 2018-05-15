@@ -339,4 +339,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Smooth Links
+const smoothLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
+
+smoothLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || targetId === '#') {
+            return;
+        }
+
+        const target = document.querySelector(targetId);
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// Toggle Button
+const toggleButton = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (toggleButton && navMenu) {
+    toggleButton.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+}
+
 console.log('Portfolio loaded successfully! 🚀');
