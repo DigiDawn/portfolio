@@ -1,3 +1,1 @@
-**How to run**
-
-npm run dev
+**Live Demo**
